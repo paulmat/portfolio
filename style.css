@@ -552,3 +552,103 @@ article + article.career-role-entry {
   .cs-img-grid { grid-template-columns: 1fr !important; gap: 0.5rem !important; }
   .nav-links { gap: 1.25rem; }
 }
+/* ============================================
+   Print styles
+   ============================================ */
+
+@media print {
+
+  /* Base */
+  body {
+    background: white;
+    color: #1a1a1a;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  /* Hide navigation and footer */
+  header nav,
+  footer,
+  .skip-link,
+  .cs-back {
+    display: none;
+  }
+
+  /* Page padding */
+  @page {
+    margin: 20mm 18mm 20mm 18mm;
+  }
+
+  /* Container */
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  /* Ensure case study header is visible */
+  .cs-header {
+    display: block;
+    padding: 0 0 1.5rem 0;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Avoid page breaks inside key elements */
+  .cs-theme,
+  .cs-theme-highlight,
+  .cs-metric,
+  .cs-quote,
+  blockquote,
+  figure,
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Keep headings with following content */
+  h1, h2, h3, h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Avoid orphans and widows */
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Page breaks before major sections */
+  hr.cs-divider {
+    border-top: 1px solid #ccc;
+    margin: 1.5rem 0;
+  }
+
+  /* Metrics grid — 3 columns in print */
+  .cs-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Image grid */
+  .cs-img-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Remove background colours that waste ink */
+  .cs-theme-highlight,
+  .cs-theme-highlight--blue,
+  .cs-metric {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+  }
+
+  /* Ensure links are readable */
+  a {
+    color: #1a1a1a;
+    text-decoration: none;
+  }
+
+  /* Quote styling */
+  .cs-quote {
+    border-left: 2px solid #1a1a1a;
+  }
+
+}
