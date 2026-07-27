@@ -179,13 +179,29 @@ footer a:hover { text-decoration: underline; }
   display: inline-block;
   font-size: 0.9rem;
   font-weight: 500;
-  color: #1a1a1a;
+  color: #fff;
+  background: #1E4A6E;
   text-decoration: none;
-  border-bottom: 2px solid #1a1a1a;
-  padding-bottom: 2px;
+  padding: 0.8rem 1.75rem;
+  border: 1px solid #1E4A6E;
+  border-radius: 6px;
+  letter-spacing: 0.01em;
+  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-.hero-cta:hover { color: #1E4A6E; border-color: #1E4A6E; text-decoration: none; }
+.hero-cta:hover {
+  background: #163a56;
+  border-color: #163a56;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(30, 74, 110, 0.25);
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta { transition: none; }
+  .hero-cta:hover { transform: none; }
+}
 
 .hero-photo { flex: 0 0 200px; }
 
@@ -523,11 +539,11 @@ article + article.career-role-entry {
 }
 
 .cs-quote p {
-  font-size: 1.05rem;
+  font-size: 1.3rem;
   color: #1a1a1a;
   font-style: italic;
-  line-height: 1.7;
-  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
 }
 
 .cs-quote cite {
@@ -535,6 +551,13 @@ article + article.career-role-entry {
   color: #1a1a1a;
   font-style: normal;
   font-weight: 500;
+}
+
+/* Quote citation sits in a <footer>; stop it inheriting the page footer's border/spacing */
+.cs-quote footer {
+  border-top: none;
+  padding: 0;
+  margin-top: 0;
 }
 
 /* ============================================
